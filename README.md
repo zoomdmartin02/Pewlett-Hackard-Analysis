@@ -116,6 +116,9 @@ As can be seen by the tables below, if the number of openings were to equal the 
 
 However, if one were to expand the eligible mentors by 1 year to include employees born in 1964 - 1965, then it becomes realistic that there would be enough mentors:
 
+![](expanded_titles_mentionship_eligible.png)
+
+
 ![](expanded_mentors_to_1964-1965.png)
 
 Following is the code snipet to expand the eligible mentors as recommended:
@@ -135,3 +138,4 @@ ORDER BY e.emp_no, t.from_date DESC;
 ```
 
 In conclusion, it is recommended to expand eligible mentors by 1 year to include personnel born in 1964 along with those born in 1965.
+

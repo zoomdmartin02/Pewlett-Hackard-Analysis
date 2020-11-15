@@ -72,7 +72,7 @@ ORDER BY e.emp_no, t.from_date DESC;
 
 -- count of mentors by dept after expansion of program to include 1964
 SELECT COUNT(title), title
-INTO expanded_titles_mentionship_eligible
+--INTO expanded_titles_mentionship_eligible
 FROM expanded_mentorship_eligibility
 GROUP BY title
 ORDER BY COUNT(title) DESC;
