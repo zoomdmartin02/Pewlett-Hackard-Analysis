@@ -99,3 +99,39 @@ How many roles will need to be filled as the "silver tsunami" begins to make an 
 Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?  To look at this we'll see how the mentorship_eligible folks break down by department for the group selected.  See following table:
 
 ![](mentorship_eligible_by_dept.png)
+
+Following is the code snipet used to create this breakdown of current mentorship eligible personnel:
+
+```
+SELECT COUNT(title), title
+--INTO retiring_titles
+FROM mentorship_eligibility
+GROUP BY title
+ORDER BY COUNT(title) DESC;
+```
+
+As can be seen by the tables below, if the number of openings were to equal the same number of departing retirees, it is likely impossible that enough mentors would be available to train all of the incoming hires.
+
+![](retiring_vs_mentors_analysis.png)
+
+However, if one were to expand the eligible mentors by 1 year to include employees born in 1964 - 1965, then it becomes realistic that there would be enough mentors:
+
+![](expanded_mentors_to_1964-1965.png)
+
+Following is the code snipet to expand the eligible mentors as recommended:
+```
+-- Expanding mentors to include 1964
+SELECT * FROM retiring_titles;
+-- CREATE Mentorship Eligibility Table
+SELECT DISTINCT ON(e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date, de.from_date, de.to_date, t.title
+INTO expanded_mentorship_eligibility
+FROM employees AS e
+LEFT JOIN dept_emp AS de
+	ON (e.emp_no = de.emp_no)
+INNER JOIN titles AS t
+	ON (e.emp_no = t.emp_no)
+WHERE de.to_date = ('9999-01-01') AND e.birth_date BETWEEN '1964-01-01' AND '1965-12-31'
+ORDER BY e.emp_no, t.from_date DESC;
+```
+
+In conclusion, it is recommended to expand eligible mentors by 1 year to include personnel born in 1964 along with those born in 1965.
