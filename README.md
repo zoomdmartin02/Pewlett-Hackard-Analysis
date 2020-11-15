@@ -23,7 +23,7 @@ Our first steps with this project will be to create tables in a Postgres SQL dat
 
 Our ERD will be generated from open source software called Quick DBD.  Following is the ERD for our starting data:
 
-	![Figure 1 - ERD](resources/EmployeeDB.png)
+	![Figure 1 - ERD](./resources/employeedb.png)
 
 
 ## Results: Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
