@@ -92,7 +92,10 @@ ORDER BY e.emp_no, t.from_date DESC;
 ```
 There are 1,549 current employees who were born in 1965 and are eligible to be mentored.
 
-## Summary: Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
+## Summary: 
 
-How many roles will need to be filled as the "silver tsunami" begins to make an impact?
-Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+How many roles will need to be filled as the "silver tsunami" begins to make an impact?  This question was answered by our analysis.  The sum of unique retirements or the sum of retirements by department is 90,398.
+
+Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?  To look at this we'll see how the mentorship_eligible folks break down by department for the group selected.  See following table:
+
+![](mentorship_eligible_by_dept.png)
